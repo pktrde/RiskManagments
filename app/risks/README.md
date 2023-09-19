@@ -9,7 +9,7 @@
 |**Service Type**<br>Local Cap|
 |**Service URL**<br>http://localhost:4004/service/risk/
 |**Module Name**<br>risks|
-|**Application Title**<br>Risks|
+|**Application Title**<br>Risks| 
 |**Namespace**<br>|
 |**UI5 Theme**<br>sap_horizon|
 |**UI5 Version**<br>1.118.0|
