@@ -1,0 +1,37 @@
+namespace riskmanagement;
+
+using { managed } from '@sap/cds/common';
+
+using { API_BUSINESS_PARTNER as external } from '../srv/external/API_BUSINESS_PARTNER.csn';
+
+entity Risks : managed
+{
+    key ID : UUID
+        @Core.Computed;
+    title : String(100);
+    owner : String;
+    prio : String(5);
+    descr : String;
+    miti : Association to one Mitigations;
+    impact : Integer;
+    bp : Association to one BusinessPartners;
+    criticality : Integer;
+}
+
+entity Mitigations : managed
+{
+    key ID : UUID
+        @Core.Computed;
+    descr : String;
+    owner : String;
+    timeline : String;
+    risks : Association to many Risks on risks.miti = $self;
+}
+
+entity BusinessPartners as projection on external.A_BusinessPartner
+{
+    key BusinessPartner,
+    FirstName,
+    LastName,
+};
+
